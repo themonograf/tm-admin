@@ -1,0 +1,10 @@
+@mixin tnlmPaper {
+  position: relative;
+  padding: 16px;
+  border-radius: 8px;
+  display: flex;
+  border: 1px solid #e8e8e8;
+  box-shadow: none;
+  overflow: hidden;
+  background-color: #fff;
+}

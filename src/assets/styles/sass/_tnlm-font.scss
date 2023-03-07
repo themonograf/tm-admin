@@ -1,0 +1,468 @@
+@font-face {
+  font-family: "tnlm-icon";
+  src: url("@cmc/assets/styles/fonts/tnlm_icon/icon.eot?jo2q13");
+  src: url("@cmc/assets/styles/fonts/tnlm_icon/icon.eot?jo2q13#iefix")
+      format("embedded-opentype"),
+    url("@cmc/assets/styles/fonts/tnlm_icon/icon.ttf?jo2q13") format("truetype"),
+    url("@cmc/assets/styles/fonts/tnlm_icon/icon.woff?jo2q13") format("woff"),
+    url("@cmc/assets/styles/fonts/tnlm_icon/icon.svg?jo2q13#icon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+.tnlm-icon {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "tnlm-icon" !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &.export-file:before {
+    content: "\e900";
+  }
+  &.add-keyaccount:before {
+    content: "\e901";
+  }
+  &.add:before {
+    content: "\e902";
+  }
+  &.admin:before {
+    content: "\e903";
+  }
+  &.alert-list:before {
+    content: "\e904";
+  }
+  &.alert-msg:before {
+    content: "\e905";
+  }
+  &.alert-o:before {
+    content: "\e906";
+  }
+  &.alert-paper:before {
+    content: "\e907";
+  }
+  &.all-o:before {
+    content: "\e908";
+  }
+  &.analytix:before {
+    content: "\e909";
+  }
+  &.announcement:before {
+    content: "\e90a";
+  }
+  &.app-o:before {
+    content: "\e90b";
+  }
+  &.app:before {
+    content: "\e90c";
+  }
+  &.archive:before {
+    content: "\e90d";
+  }
+  &.arrow-back:before {
+    content: "\e90e";
+  }
+  &.arrow-down:before {
+    content: "\e90f";
+  }
+  &.arrow-left:before {
+    content: "\e910";
+  }
+  &.arrow-right:before {
+    content: "\e911";
+  }
+  &.arrow-up:before {
+    content: "\e912";
+  }
+  &.article:before {
+    content: "\e913";
+  }
+  &.bar-chart:before {
+    content: "\e914";
+  }
+  &.bci-researcher:before {
+    content: "\e915";
+  }
+  &.bci-text:before {
+    content: "\e916";
+  }
+  &.bell-o:before {
+    content: "\e917";
+  }
+  &.book-open:before {
+    content: "\e918";
+  }
+  &.bookmark:before {
+    content: "\e919";
+  }
+  &.briefcase:before {
+    content: "\e91a";
+  }
+  &.building:before {
+    content: "\e91b";
+  }
+  &.calendar:before {
+    content: "\e91c";
+  }
+  &.category:before {
+    content: "\e91d";
+  }
+  &.chart-line:before {
+    content: "\e91e";
+  }
+  &.chart-pie:before {
+    content: "\e91f";
+  }
+  &.chart:before {
+    content: "\e920";
+  }
+  &.clock:before {
+    content: "\e921";
+  }
+  &.close:before {
+    content: "\e922";
+  }
+  &.comparison-copy:before {
+    content: "\e923";
+  }
+  &.comparison:before {
+    content: "\e924";
+  }
+  &.da-number:before {
+    content: "\e925";
+  }
+  &.data-form:before {
+    content: "\e926";
+  }
+  &.data:before {
+    content: "\e927";
+  }
+  &.deal_data_field:before {
+    content: "\e928";
+  }
+  &.development-type:before {
+    content: "\e929";
+  }
+  &.dnd:before {
+    content: "\e92a";
+  }
+  &.document:before {
+    content: "\e92b";
+  }
+  &.dollar:before {
+    content: "\e92c";
+  }
+  &.download:before {
+    content: "\e92d";
+  }
+  &.eco:before {
+    content: "\e92e";
+  }
+  &.enquiries:before {
+    content: "\e92f";
+  }
+  &.eye-slashes:before {
+    content: "\e930";
+  }
+  &.eye:before {
+    content: "\e931";
+  }
+  &.files-o:before {
+    content: "\e932";
+  }
+  &.files:before {
+    content: "\e933";
+  }
+  &.floor-area:before {
+    content: "\e934";
+  }
+  &.folder:before {
+    content: "\e935";
+  }
+  &.follow-up-complete:before {
+    content: "\e936";
+  }
+  &.followup-today:before {
+    content: "\e937";
+  }
+  &.fullpage-exit:before {
+    content: "\e938";
+  }
+  &.fullpage:before {
+    content: "\e939";
+  }
+  &.gavel:before {
+    content: "\e93a";
+  }
+  &.government-id:before {
+    content: "\e93b";
+  }
+  &.green:before {
+    content: "\e93c";
+  }
+  &.group-companies:before {
+    content: "\e93d";
+  }
+  &.help-circle:before {
+    content: "\e93e";
+  }
+  &.home-o:before {
+    content: "\e93f";
+  }
+  &.image:before {
+    content: "\e940";
+  }
+  &.info-o:before {
+    content: "\e941";
+  }
+  &.keyaccount:before {
+    content: "\e942";
+  }
+  &.leaderboard:before {
+    content: "\e943";
+  }
+  &.link:before {
+    content: "\e944";
+  }
+  &.location-point:before {
+    content: "\e945";
+  }
+  &.lock:before {
+    content: "\e946";
+  }
+  &.mail:before {
+    content: "\e947";
+  }
+  &.map-o:before {
+    content: "\e948";
+  }
+  &.map-pin:before {
+    content: "\e949";
+  }
+  &.map:before {
+    content: "\e94a";
+  }
+  &.master-plan:before {
+    content: "\e94b";
+  }
+  &.miniCompany:before {
+    content: "\e94c";
+  }
+  &.more-app-o:before {
+    content: "\e94d";
+  }
+  &.more-app:before {
+    content: "\e94e";
+  }
+  &.next:before {
+    content: "\e94f";
+  }
+  &.non-bell-o:before {
+    content: "\e950";
+  }
+  &.notification-active:before {
+    content: "\e951";
+  }
+  &.notification-o:before {
+    content: "\e952";
+  }
+  &.notification:before {
+    content: "\e953";
+  }
+  &.open-in-new:before {
+    content: "\e954";
+  }
+  &.option:before {
+    content: "\e955";
+  }
+  &.other:before {
+    content: "\e956";
+  }
+  &.ownership-type:before {
+    content: "\e957";
+  }
+  &.pen:before {
+    content: "\e958";
+  }
+  &.person-group:before {
+    content: "\e959";
+  }
+  &.person:before {
+    content: "\e95a";
+  }
+  &.phone:before {
+    content: "\e95b";
+  }
+  &.place-o:before {
+    content: "\e95c";
+  }
+  &.place:before {
+    content: "\e95d";
+  }
+  &.plus_circle:before {
+    content: "\e95e";
+  }
+  &.postcode-o:before {
+    content: "\e95f";
+  }
+  &.prev:before {
+    content: "\e960";
+  }
+  &.printer:before {
+    content: "\e961";
+  }
+  &.project-id:before {
+    content: "\e962";
+  }
+  &.project:before {
+    content: "\e963";
+  }
+  &.projectpipeline:before {
+    content: "\e964";
+  }
+  &.related-contact:before {
+    content: "\e965";
+  }
+  &.relationship-mapping:before {
+    content: "\e966";
+  }
+  &.researcher-note:before {
+    content: "\e967";
+  }
+  &.researcher-remark:before {
+    content: "\e968";
+  }
+  &.role:before {
+    content: "\e969";
+  }
+  &.search:before {
+    content: "\e96a";
+  }
+  &.setting:before {
+    content: "\e96b";
+  }
+  &.share:before {
+    content: "\e96c";
+  }
+  &.sheet:before {
+    content: "\e96d";
+  }
+  &.sign-out:before {
+    content: "\e96e";
+  }
+  &.site-area:before {
+    content: "\e96f";
+  }
+  &.site-unit:before {
+    content: "\e970";
+  }
+  &.site:before {
+    content: "\e971";
+  }
+  &.sort-table-asc:before {
+    content: "\e972";
+  }
+  &.sort-table-desc:before {
+    content: "\e973";
+  }
+  &.sort-table:before {
+    content: "\e974";
+  }
+  &.sort:before {
+    content: "\e975";
+  }
+  &.stage:before {
+    content: "\e976";
+  }
+  &.status:before {
+    content: "\e977";
+  }
+  &.storey:before {
+    content: "\e978";
+  }
+  &.strip:before {
+    content: "\e979";
+  }
+  &.subfolder-o:before {
+    content: "\e97a";
+  }
+  &.task-all:before {
+    content: "\e97b";
+  }
+  &.task-complete:before {
+    content: "\e97c";
+  }
+  &.task-o:before {
+    content: "\e97d";
+  }
+  &.task-overdue:before {
+    content: "\e97e";
+  }
+  &.task-today:before {
+    content: "\e97f";
+  }
+  &.task-upcoming:before {
+    content: "\e980";
+  }
+  &.task:before {
+    content: "\e981";
+  }
+  &.telephone:before {
+    content: "\e982";
+  }
+  &.tender-status:before {
+    content: "\e983";
+  }
+  &.tick-mark:before {
+    content: "\e984";
+  }
+  &.total-matched-project:before {
+    content: "\e985";
+  }
+  &.town:before {
+    content: "\e986";
+  }
+  &.trash:before {
+    content: "\e987";
+  }
+  &.trophy:before {
+    content: "\e988";
+  }
+  &.upcoming:before {
+    content: "\e989";
+  }
+  &.user-check:before {
+    content: "\e98a";
+  }
+  &.user-o:before {
+    content: "\e98b";
+  }
+  &.user-plus:before {
+    content: "\e98c";
+  }
+  &.version-o:before {
+    content: "\e98d";
+  }
+  &.version:before {
+    content: "\e98e";
+  }
+  &.view-card:before {
+    content: "\e98f";
+  }
+  &.view-table:before {
+    content: "\e990";
+  }
+  &.website:before {
+    content: "\e991";
+  }
+  &.working-with:before {
+    content: "\e992";
+  }
+}

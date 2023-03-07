@@ -1,0 +1,15 @@
+.dialogBox {
+  @apply relative m-8 flex max-h-[calc(100%_-_theme(space.16))] flex-col overflow-y-auto;
+  &.sm {
+    @apply max-w-[300px];
+  }
+  &.md {
+    @apply max-w-[600px];
+  }
+  &.lg {
+    @apply max-w-[1000px];
+  }
+  &.full {
+    @apply max-w-full;
+  }
+}
