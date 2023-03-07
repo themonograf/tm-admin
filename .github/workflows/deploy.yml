@@ -1,0 +1,42 @@
+name: Deploy React App to GitHub Pages on The Same Account
+on:
+  # Trigger the workflow every time you push to the `main` branch
+  push:
+    branches: [main]
+
+  # Allows you to run this workflow manually from the Actions tab on GitHub.
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build App
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out your repository using git
+        uses: actions/checkout@v2
+
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v2
+        with:
+          version: 6.0.2
+
+      - name: Use Node.js 16
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+
+      - name: Install dependencies
+        run: |
+          pnpm i
+          pnpm build
+      - name: Deploy to another repository 🚀
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          SSH_DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+          API_TOKEN_GITHUB: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          source-directory: "dist"
+          destination-github-username: ${{ github.actor }}
+          destination-repository-name: "themonograf.github.io"
+          user-email: ${{ github.event.repository.owner.email }}
+          target-branch: main
