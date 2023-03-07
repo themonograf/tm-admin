@@ -1,8 +1,6 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
 
 interface Props {
   children: React.ReactNode;
@@ -23,11 +21,7 @@ const queryClient = new QueryClient({
 function Providers({ children }: Props) {
   return (
     <BrowserRouter>
-      <QueryClientProvider client={queryClient}>
-        <LocalizationProvider dateAdapter={AdapterMoment}>
-          {children}
-        </LocalizationProvider>
-      </QueryClientProvider>
+      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
     </BrowserRouter>
   );
 }

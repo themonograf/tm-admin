@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "vite",
-    "build": "tsc && vite build",
+    "build": "npm run check && vite build",
     "preview": "vite preview",
     "check": "tsc && npm run lint && npm run prettier-check",
     "lint": "eslint . --ext .ts,.tsx",
@@ -20,11 +20,7 @@
     "clean": "rm -rf node_modules build dist package-lock.json yarn.lock pnpm-lock.yaml"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.6",
-    "@emotion/styled": "^11.10.6",
     "@fitzzz/utils": "^0.2.0",
-    "@mui/material": "^5.11.10",
-    "@mui/x-date-pickers": "^5.0.20",
     "@popperjs/core": "^2.11.6",
     "@tanstack/react-query": "^4.24.10",
     "@tanstack/react-query-persist-client": "^4.24.10",
