@@ -32,8 +32,8 @@ jobs:
       - name: Deploy to another repository 🚀
         uses: cpina/github-action-push-to-another-repository@main
         env:
-          SSH_DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
-          API_TOKEN_GITHUB: ${{ secrets.GITHUB_TOKEN }}
+          # SSH_DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
           source-directory: "dist"
           destination-github-username: ${{ github.actor }}
