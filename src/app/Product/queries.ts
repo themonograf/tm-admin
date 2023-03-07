@@ -103,6 +103,3 @@ export const useRemoveProduct = (
     onSettled: toggleLoader,
   });
 };
-
-export const useDeleteProductById = (id: number) =>
-  useQuery([`product/${id}`], () => deleteProductApi(id));

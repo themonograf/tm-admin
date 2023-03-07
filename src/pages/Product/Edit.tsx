@@ -30,7 +30,7 @@ const ProductEdit = () => {
                         "deletedAt",
                         "isSold",
                       ]),
-                      prefix: data.data.name.split(" ")[0],
+                      prefix: "",
                       productImage: data.data.productImage.map((item) =>
                         omit(item, ["createdAt", "productId", "updatedAt"]),
                       ),

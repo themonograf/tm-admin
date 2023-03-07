@@ -5,49 +5,62 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 import { ProductData } from "../types";
-import { useGetProduct } from "../queries";
+import { useGetProduct, useRemoveProduct } from "../queries";
 import { Link } from "react-router-dom";
 import { Pagination } from "@tm-wear/core";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
-import { BiLinkExternal, BiPencil } from "react-icons/bi";
+import { BiLinkExternal, BiPencil, BiTrash } from "react-icons/bi";
 import appConfig from "@tm-wear/app.config";
 import { useDebounce } from "@tm-wear/utils";
 import useProductStore from "../store";
+import { Confirmation } from "@tm-wear/core/custom";
+import { useState } from "react";
 
 const columnHelper = createColumnHelper<ProductData>();
-
-const columns = [
-  columnHelper.accessor("name", {
-    header: "Nama",
-  }),
-  columnHelper.accessor("variant", {
-    header: "Varian",
-  }),
-  columnHelper.accessor((row) => row, {
-    header: "URL",
-    maxSize: 20,
-    cell: (info) => (
-      <div className="flex items-center gap-4">
-        <Link
-          to={`${appConfig.ecommerceSite}/product/${info.getValue().slug}`}
-          target="_blank"
-        >
-          <BiLinkExternal size={17} />
-        </Link>
-        <Link to={`/product/edit/${info.getValue().id}`}>
-          <BiPencil size={17} />
-        </Link>
-      </div>
-    ),
-  }),
-];
 
 export default function Table() {
   const { filter, setFilter } = useProductStore();
   const debounced = useDebounce(filter);
-  const { data: products, isFetching } = useGetProduct(debounced);
+  const { data: products, isFetching, refetch } = useGetProduct(debounced);
+  const { mutate: onRemoveProduct } = useRemoveProduct((res) => {
+    if (res.success) {
+      refetch();
+      setRemove(null);
+    }
+  });
   const total = products?.data?.total || 0;
   const data = products?.data?.data || [];
+
+  const [remove, setRemove] = useState<ProductData | null>(null);
+
+  const columns = [
+    columnHelper.accessor("name", {
+      header: "Nama",
+    }),
+    columnHelper.accessor("variant", {
+      header: "Varian",
+    }),
+    columnHelper.accessor((row) => row, {
+      header: "URL",
+      maxSize: 20,
+      cell: (info) => (
+        <div className="flex items-center gap-4">
+          <Link
+            to={`${appConfig.ecommerceSite}/product/${info.getValue().slug}`}
+            target="_blank"
+          >
+            <BiLinkExternal size={17} />
+          </Link>
+          <Link to={`/product/edit/${info.getValue().id}`}>
+            <BiPencil size={17} />
+          </Link>
+          <button onClick={() => setRemove(info.getValue())}>
+            <BiTrash size={17} />
+          </button>
+        </div>
+      ),
+    }),
+  ];
 
   const table = useReactTable({
     data,
@@ -107,6 +120,13 @@ export default function Table() {
           }
         />
       </div>
+      <Confirmation
+        open={!!remove}
+        onClose={() => setRemove(null)}
+        title={`Hapus Product`}
+        message={`Apakah anda yakin ingin hapus produk ini?`}
+        onSubmit={() => remove?.id && onRemoveProduct(remove?.id)}
+      />
     </div>
   );
 }
