@@ -22,7 +22,7 @@ const useLayoutStore = create<State & Action>()(
     (set, get) => ({
       ...initialFilter,
       setErrorPage: (statusCode) => set({ errorPage: statusCode }),
-      toggleLoader: () => set({ loader: !get().toggleLoader }),
+      toggleLoader: () => set({ loader: !get().loader }),
       clearLayoutStore: () => set({ ...initialFilter }),
     }),
     {

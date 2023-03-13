@@ -4,6 +4,9 @@ const Dashboard = React.lazy(() => import("@tm-wear/pages/Dahboard"));
 const Product = React.lazy(() => import("@tm-wear/pages/Product"));
 const ProductNew = React.lazy(() => import("@tm-wear/pages/Product/New"));
 const ProductEdit = React.lazy(() => import("@tm-wear/pages/Product/Edit"));
+const Reseller = React.lazy(() => import("@tm-wear/pages/Reseller"));
+const ResellerNew = React.lazy(() => import("@tm-wear/pages/Reseller/New"));
+const ResellerEdit = React.lazy(() => import("@tm-wear/pages/Reseller/Edit"));
 const Images = React.lazy(() => import("@tm-wear/pages/Images"));
 const ImagesNew = React.lazy(() => import("@tm-wear/pages/Images/New"));
 const Banner = React.lazy(() => import("@tm-wear/pages/Banner"));
@@ -38,6 +41,23 @@ const routes = [
         path: "/edit/:id",
         component: <ProductEdit />,
         title: "Edit Product",
+      },
+    ],
+  },
+  {
+    path: "/reseller",
+    component: <Reseller />,
+    title: "Reseller",
+    children: [
+      {
+        path: "/tambah",
+        component: <ResellerNew />,
+        title: "Tambahkan Reseller",
+      },
+      {
+        path: "/edit/:id",
+        component: <ResellerEdit />,
+        title: "Edit Reseller",
       },
     ],
   },

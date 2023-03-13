@@ -4,67 +4,84 @@ import {
   getCoreRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import { ProductData } from "../types";
-import { useGetProduct, useRemoveProduct } from "../queries";
+import { useGetReseller, useRemoveReseller } from "../queries";
 import { Link } from "react-router-dom";
 import { Pagination } from "@tm-wear/core";
-import { AiOutlineLoading3Quarters } from "react-icons/ai";
-import { BiLinkExternal, BiPencil, BiTrash } from "react-icons/bi";
-import appConfig from "@tm-wear/app.config";
+import {
+  AiOutlineCheckCircle,
+  AiOutlineCloseCircle,
+  AiOutlineLoading3Quarters,
+} from "react-icons/ai";
+import { BiPencil, BiTrash } from "react-icons/bi";
 import { useDebounce } from "@tm-wear/utils";
-import useProductStore from "../store";
+import useResellerStore from "../store";
 import { Confirmation } from "@tm-wear/core/custom";
 import { useMemo, useState } from "react";
+import { ResellerDataSchema } from "../validator";
 
 export default function Table() {
-  const { filter, setFilter } = useProductStore();
+  const { filter, setFilter } = useResellerStore();
   const debounced = useDebounce(filter);
-  const { data: products, isFetching, refetch } = useGetProduct(debounced);
-  const { mutate: onRemoveProduct } = useRemoveProduct((res) => {
+  const { data: reseller, isFetching, refetch } = useGetReseller(debounced);
+  const { mutate: onRemoveReseller } = useRemoveReseller((res) => {
     if (res.success) {
       refetch();
       setRemove(null);
     }
   });
-  const total = products?.data?.total || 0;
-  const data = products?.data?.data || [];
+  const total = reseller?.data?.total || 0;
+  const data = reseller?.data?.data || [];
 
-  const [remove, setRemove] = useState<ProductData | null>(null);
+  const [remove, setRemove] = useState<ResellerDataSchema | null>(null);
 
-  const columns = useMemo<ColumnDef<ProductData>[]>(
+  const columns = useMemo<ColumnDef<ResellerDataSchema | null>[]>(
     () => [
       {
         accessorKey: "name",
         header: "Nama",
-        size: 50,
+        size: 33.33,
       },
       {
-        accessorKey: "variant",
-        header: "Varian",
-        size: 50,
+        accessorKey: "username",
+        header: "Username",
+        size: 33.33,
+      },
+      {
+        accessorKey: "email",
+        header: "Email",
+        size: 33.33,
+      },
+      {
+        accessorKey: "isAdmin",
+        header: "Admin",
+        size: 33.33,
+        cell: (info) => (
+          <div className="flex justify-center">
+            {info.getValue() ? (
+              <AiOutlineCheckCircle size={20} className="text-blue-500" />
+            ) : (
+              <AiOutlineCloseCircle size={20} className="text-red-500" />
+            )}
+          </div>
+        ),
       },
       {
         id: "url",
-        header: "",
-        size: 50,
+        header: " ",
         accessorFn: (row) => row,
         cell: (info) => {
           return (
-            <div className="inline-flex w-24 items-center justify-center gap-4 overflow-hidden">
+            <div className="inline-flex w-16 items-center justify-center gap-4 overflow-hidden">
               <Link
-                to={`${appConfig.ecommerceSite}/product/${
-                  info.getValue<ProductData>().slug
+                to={`/reseller/edit/${
+                  info.cell.getValue<ResellerDataSchema>().id
                 }`}
-                target="_blank"
-              >
-                <BiLinkExternal size={17} />
-              </Link>
-              <Link
-                to={`/product/edit/${info.cell.getValue<ProductData>().id}`}
               >
                 <BiPencil size={17} />
               </Link>
-              <button onClick={() => setRemove(info.getValue<ProductData>())}>
+              <button
+                onClick={() => setRemove(info.getValue<ResellerDataSchema>())}
+              >
                 <BiTrash size={17} />
               </button>
             </div>
@@ -140,9 +157,9 @@ export default function Table() {
       <Confirmation
         open={!!remove}
         onClose={() => setRemove(null)}
-        title={`Hapus Product`}
+        title={`Hapus Reseller`}
         message={`Apakah anda yakin ingin hapus produk ini?`}
-        onSubmit={() => remove?.id && onRemoveProduct(remove?.id)}
+        onSubmit={() => remove?.id && onRemoveReseller(remove?.id)}
       />
     </div>
   );

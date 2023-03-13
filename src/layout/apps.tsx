@@ -1,5 +1,5 @@
 import React from "react";
-import { FcAddImage, FcFrame } from "react-icons/fc";
+import { FcAddImage, FcBusinessman, FcFrame, FcShop } from "react-icons/fc";
 import { MdOutlineCategory } from "react-icons/md";
 
 type Apps = {
@@ -18,7 +18,12 @@ const apps: Apps = [
       {
         title: "Product",
         path: "/product",
-        icon: <FcAddImage fontSize={"45px"} />,
+        icon: <FcShop fontSize={"45px"} />,
+      },
+      {
+        title: "Reseller",
+        path: "/reseller",
+        icon: <FcBusinessman fontSize={"45px"} />,
       },
     ],
   },

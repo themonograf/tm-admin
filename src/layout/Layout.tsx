@@ -2,7 +2,7 @@ import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import routes, { RoutesType } from "@tm-wear/routes";
 import AppHeader from "./AppHeader";
-import { Box } from "@tm-wear/core";
+import { Box, GlobalLoader } from "@tm-wear/core";
 import { ToastContainer } from "react-toastify";
 
 import styles from "./Layout.module.scss";
@@ -47,6 +47,8 @@ function Layout() {
           </div>
         </Box>
       </Box>
+
+      <GlobalLoader />
 
       <ToastContainer
         position="top-right"
