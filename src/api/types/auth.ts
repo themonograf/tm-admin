@@ -1,16 +1,22 @@
-export type UserData = {
-  id: number;
-  name: string;
-  username: string;
-  createdAt: string | null;
-  updatedAt: string | null;
-  deletedAt: string | null;
-};
+import { z } from "zod";
 
-export type User = {
-  accessToken: string;
-  data: UserData;
-  expiresAt: number;
-  refreshToken: string;
-  success: boolean;
-};
+export const userDataSchema = z.object({
+  id: z.number(),
+  name: z.string(),
+  username: z.string(),
+  createdAt: z.string().nullable(),
+  updatedAt: z.string().nullable(),
+  deletedAt: z.string().nullable(),
+});
+
+export type UserData = z.infer<typeof userDataSchema>;
+
+export const userSchema = z.object({
+  accessToken: z.string(),
+  expiresAt: z.number(),
+  refreshToken: z.string(),
+  success: z.boolean(),
+  data: userDataSchema,
+});
+
+export type User = z.infer<typeof userSchema>;

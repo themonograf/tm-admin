@@ -51,7 +51,7 @@ const Form = ({ currentValue, onSave }: Props) => {
         }
       }}
     >
-      <div className="rounded-md bg-gray-50 p-4">
+      <div className="mb-4 rounded-md bg-gray-50 p-4">
         <div className="md:grid md:grid-cols-3 md:gap-6">
           <div className="md:col-span-1">
             <div className="px-4 sm:px-0">
@@ -245,7 +245,7 @@ const Form = ({ currentValue, onSave }: Props) => {
               </p>
             </div>
           </div>
-          <div className="mt-5 hidden md:col-span-2 md:mt-0">
+          <div className="mt-5 md:col-span-2 md:mt-0">
             <div className="shadow sm:overflow-hidden sm:rounded-md">
               <div className="space-y-6 bg-white px-4 py-5 sm:p-6">
                 <div className="grid grid-cols-4 gap-6">

@@ -13,6 +13,7 @@ const Banner = React.lazy(() => import("@tm-wear/pages/Banner"));
 const BannerNew = React.lazy(() => import("@tm-wear/pages/Banner/New"));
 const Category = React.lazy(() => import("@tm-wear/pages/Category"));
 const CategoryNew = React.lazy(() => import("@tm-wear/pages/Category/New"));
+const CategoryEdit = React.lazy(() => import("@tm-wear/pages/Category/Edit"));
 
 export type RoutesType = {
   path: string;
@@ -86,7 +87,7 @@ const routes = [
     ],
   },
   {
-    path: "/banner",
+    path: "/category",
     component: <Category />,
     title: "Manajemen Kategori",
     children: [
@@ -94,6 +95,11 @@ const routes = [
         path: "/tambah",
         component: <CategoryNew />,
         title: "Tambahkan Kategori",
+      },
+      {
+        path: "/edit/:id",
+        component: <CategoryEdit />,
+        title: "Edit Kategory",
       },
     ],
   },
